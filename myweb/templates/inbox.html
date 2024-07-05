@@ -1,0 +1,68 @@
+{% extends './home.html' %}
+{% load static %}
+{% block title %} <title>Admin login</title> {% endblock %}
+{% block link %} <link rel="stylesheet" href="{% static '/style.css' %}"> {% endblock %}
+{% block navbar %}
+<li class="nav-item">
+    <a href="/" class="nav-link h5 text-white">Home</a>
+</li>
+{% endblock %}
+{% block main %}
+
+<div class="container-fluid pb-5 bg-dark">
+    <p class="h3">My Inbox</p>
+    <input type="text" class="form-control my-2" placeholder="search table" id="srch_val">
+   <div class="container-fluid d-flex flex-column p-0 table-hover">
+    <div class="row bg-light p-0">
+        <div class="col-md-2">
+            <p class="p-2 text-left h4">S/N</p>
+        </div>
+        <div class="col-md-2">
+            <p class="p-2 text-left h4">Date</p>
+        </div>
+        <div class="col-md-2">
+            <p class="text-success p-2 h4">Name</p> 
+        </div>
+        <div class="col-md-2">
+            <p class="text-info p-2 h4">Phone Number</p>
+        </div>
+        <div class="col-md-2">
+            <p class="text-warning p-2 text h4">Email</p>
+        </div>
+        <div class="col-md-2">
+            <p class="text-success p-2 h4">Message</p>
+        </div>
+    </div>
+    {% for item in All_msg %}
+    <div class="ro rounded"> 
+        <div class="row p-0 {% cycle 'table-primary' 'table-info' 'table-success' %}">
+            <div class="col-md-2">
+                <p class="p-2 text-left"> {{forloop.counter}}</p>
+            </div>
+            <div class="col-md-2">
+                <p class="p-2 text-left">{{item.created_at | date:' N, jS, Y f a'}}</p>
+            </div>
+            <div class="col-md-2">
+                <p class="text-success p-2" srch>{{item.name}}</p> 
+            </div>
+            <div class="col-md-2">
+                <p class="text-info p-2 ">{{item.phone_no}} </p>
+            </div>
+            <div class="col-md-2">
+                <p class="text-warning p-2 text">{{item.email}} </p>
+            </div>
+            <div class="col-md-2">
+                <p class="text-success p-2">{{item.message}}</p>
+            </div>
+       </div>
+    </div>
+    {% endfor %}
+   </div>
+</div>
+{% endblock %}
+
+{% block script %} 
+{{block.super}}
+<script src="{% static '/signup.js' %}"></script>
+<script src="{% static '/select.js' %}"></script>
+ {% endblock %}

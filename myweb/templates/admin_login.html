@@ -1,0 +1,31 @@
+{% extends './home.html' %}
+{% load static %}
+{% block title %} <title>Admin login</title> {% endblock %}
+{% block link %} <link rel="stylesheet" href="{% static '/signup.css' %}"> {% endblock %}
+{% block navbar %}
+<ul class="navbar-nav d-flex justify-content-end pl-2 nav" style="width:100%;">
+<li class="nav-item">
+    <a href="/" class="nav-link h5">Home</a>
+</li>
+{% endblock %}
+{% block main %}
+<div class="container ad p-0">
+    <h3 class="bg-primary text-white pl-3 hd h4">Admin Page</h3>
+    {% for msg in messages %}
+<div class="alert alert-dismissible fade show my-3 bg-light" id="at">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <p class="text-danger text-center at">{{msg}}</p>
+</div>
+{% endfor %}
+    <form action="" style=" padding: 5px 30px; width: 100%;" method="post">
+        {% csrf_token %}
+            <label for="e" class="form-control-label h6" >Email:</label>
+            <input type="email" class="form-control" id="e", name="email" placeholder="you@gmail.com" required>
+            <label for="p" class="form-control-label h6" >password:</label>
+            <input type="password" class="form-control" id="p", name="password" required>
+        <input type="submit" class="btn  btn-success my-3" value="Login">
+    </form>
+</div>
+{% endblock %}
+
+{% block script %} <script src="{% static '/signup.js' %}"></script> {% endblock %}

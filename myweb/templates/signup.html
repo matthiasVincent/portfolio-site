@@ -1,0 +1,43 @@
+{% extends './home.html' %}
+{% load static %}
+{% block title %} <title>Signup</title> {% endblock %}
+{% block link %}
+ <link rel="stylesheet" href="{% static '/style.css' %}">
+ <link rel="stylesheet" href="{% static '/signup.css' %}"> 
+{% endblock %}
+{% block navbar %}
+<li class="nav-item">
+    <a href="/" class="nav-link text-white h5">Home</a>
+</li>
+{% endblock %}
+
+{% block main %}
+<div class=" container  ad p-0">
+    <h3 class="bg-primary text-white pl-3 hd h4">Sign Up Page</h3>
+    {% for msg in messages %}
+<div class="alert alert-dismissible fade show my-3 bg-light" id="at">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <p class="text-danger text-center at">{{msg}}</p>
+</div>
+{% endfor %}
+    <form action="" style=" padding: 5px 30px; width: 80%;" method="post">
+        {% csrf_token %}
+            <label for="d" class="form-control-label" >Username:</label>
+            <input type="text" class="form-control" id="d", name="username" 
+            value=""  placeholder="Username" required>
+            <label for="e" class="form-control-label" >Email:</label>
+            <input type="email" class="form-control" id="e", name="email" value="" placeholder="you@gmail.com" required>
+            <label for="p" class="form-control-label" >Password:</label>
+            <input type="password" class="form-control" id="p", name="password" value="" required>
+            <label for="cp" class="form-control-label" >Confirm Password:</label>
+            <input type="password" class="form-control" id="cp", name="password2" value="" required>
+        <input type="submit" class="btn btn-success my-2" value="Signup">
+    </form>
+</div>
+{% endblock %}
+
+
+{% block script %} 
+{{block.super}}
+<script src="{% static '/signup.js' %}"></script> 
+{% endblock %}
