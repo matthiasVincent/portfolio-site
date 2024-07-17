@@ -4,7 +4,8 @@ from datetime import datetime
 # Create your models here.
 
 class Message(models.Model):
-    name=models.CharField(max_length=40)
+    """stores feedback messages at the backend"""
+    name = models.CharField(max_length=40)
     phone_no = models.CharField(max_length=12)
     email = models.EmailField()
     message = models.CharField(max_length=1000000)
