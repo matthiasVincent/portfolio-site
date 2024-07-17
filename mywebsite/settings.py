@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$i*0a=-@bqk%=(-3y48^!c&k0f4n7&rt)lv247yay(%v)f4b_x'
+
+env = environ.Env()
+env.read_env()
+
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Matthias28908ue14.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -123,9 +129,35 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# default static files settings for PythonAnywhere.
-# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = '/home/Matthias28908ue14/mywebsite/media'
-MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/Matthias28908ue14/mywebsite/static'
-STATIC_URL = '/static/'
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_HOST ='localhost'
+    # media url
+    MEDIA_URL = '/media/'
+    # static url
+    STATIC_URL = '/static/'
+    #STATIC_ROOT = BASE_DIR/'static'
+    MEDIA_ROOT = BASE_DIR/'media/'
+    STATICFILES_DIRS = [BASE_DIR/'static/']
+else:
+    # default static files settings for PythonAnywhere.
+    # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
+
+    MEDIA_ROOT = '/home/Matthias28908ue14/mywebsite/media'
+    MEDIA_URL = '/media/'
+    STATIC_ROOT = '/home/Matthias28908ue14/mywebsite/static'
+    STATIC_URL = '/static/'
+    #STATIC_ROOT = BASE_DIR/'static'
+    # MEDIA_ROOT = BASE_DIR/'media/'
+    # STATICFILES_DIRS = [BASE_DIR/'static/']
+    host_user = env('EMAIL_HOST_USER')
+    pass_word = env('EMAIL_HOST_PASSWORD')
+
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = host_user
+    EMAIL_HOST_PASSWORD = pass_word
+
+PORTFOLIO_SITE_OWNER_EMAIL = 'sundayoduhmatthias@gmail.com'

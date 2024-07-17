@@ -1,0 +1,1228 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Portfolio site of Matthias Sunday Oduh">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title %} <title>Matthias-site</title> {% endblock %}
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster Two&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static '/new_styles.css' %}">
+        {% block link %} {% endblock %}
+        <script src="https://kit.fontawesome.com/8d8053aa7b.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm  navbar-dark fixed-top py-0" style="background-color: black;">
+                <a href="#" class="navbar-brand  p-1" style="width: 60px; height: 60px; border-radius: 50%;">
+                    <img src="{% static '/mvs2.png' %}" alt="logo" class="img-thumbnail" style="width: 100%; height:100%; border-radius: 50%; background-color: black;">
+                </a>
+
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigation-links">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse mb-0 p-0" id="navigation-links" style="width: 100%;">
+                    <ul class="navbar-nav d-flex justify-content-end" style="width:100%; margin: 0; padding: 10px;">
+                        {% block navbar %}
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link text-white h4" style="font-size:20px;">home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link text-white h4" style="font-size:20px;">about</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#portfolio" class="nav-link text-white h4" style="font-size:20px;">portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link text-white h4" style="font-size:20px;">contact</a>
+                        </li>
+                        {% endblock %}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+           <!-- The Modal for form submit-->
+        <div class="modal" id="mymodal">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Hello!</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                <P id="feedback_message" class="text-success"></p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+            </div>
+        </div>
+
+        
+        <main class="main-page">
+
+            <!-- Hero section -->
+            <section id="home" class="hero-section mt-3 hide">
+                <header class="p-3 text-center mt-3">
+                    <h2>Meet Me</h2>
+                </header>
+                <div class="container-fluid">
+                    <div class="row">
+                        <article class="left col-md-4">
+                            <div class="hero-image">
+                                <img src="{% static '/mvs1.png' %}" alt="hero image">
+                            </div>
+                        </article>
+                        <article class="right col-md-7">
+                            <h3>Hi, I'm <span>Matthias Sunday Oduh.</span> A first class graduate of Electrical and Electronics Engineering.</h3>
+                            <p> I'm a tech enthusiast, a junior full stack developer with competencies on stacks: MERN and LEMP.
+                                I am interestingly a passionate teacher with unrivalled attention to posterity. As an Electrical and Electronic Engineer, I hope
+                                to specialize in control system engineering.
+                            </p>
+                            <div class="dropdown dropup">
+                                <button class="download-cv" title="download my CV" data-toggle="dropdown">Download Cv
+                                    <span class="ml-3 p-2 icon"><i class="fas fa-download"></i></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.pdf' %}" class="dropdown-item" download>download pdf</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.docx' %}" class="dropdown-item" download>download docx</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <hr />
+            </section>
+
+            <!-- About section -->
+            <section id="about" class="about-section hide">
+                <header>
+                    <h4>Short Biography</h4>
+                    <p>About Me</p>
+                </header>
+                <div class="row pt-4">
+
+                    <!-- Short biography -->
+                    <article class="short-bio col-md-6">
+                        <h2 class="info-txt">Information about me</h2>
+                        <p>
+                            I am a native of Adupi-Orokam in Ogbadibo,
+                            LGA Benue State Nigeria. I am Idoma by tribe.
+                            I was born on the 9th of August, 1996 at
+                            Ipoba Ajebamibo, Idanre LGA, Ondo State.
+                            I speak and write in English language fluently.
+                            I can also converse little in Yoruba language.
+                        </p>
+                        <p>
+                             I studied Electrical and Electronics Engineering at Federal University of Agriculture, Makurdi (FUAM) and
+                             graduated with first class honour in 2020.
+                              Check out my statement of results
+                              <a href="{% static '/statement_of_result.pdf' %}" title="check out my statement of results" target="_blank">
+                                here
+                            </a>
+                        </p>
+                        <p>
+                            I am keen on making positive impacts in
+                            the society with the little resources at
+                            my disposal because I believe that is the essence of life.
+                            I am hardworking and daring. I welcome constructive criticism
+                            wholeheartedly without reservation. I mingle with like minds and
+                            always at alert to key into any opportunity that will make me a better me.
+    
+                        </p>
+                        <p>
+                            I am an ambitious individual with an innate passion for continuous growth and 
+                            personal development. I am daring, committed, responsible, and highly motivated. 
+                            I excel as a team player and possess qualities and skills in problem-solving, 
+                            multitasking, quickly grasping novel ideas, and effective oral and written communication. 
+                            Additionally, I have exceptional stamina for tackling challenging yet rewarding tasks.
+
+                        </p>
+                        <p>
+                            Interestingly, I am a novelist,
+                            song writer, a die-hard Barcelona fan.
+                             You can peruse through the manuscripts of
+                             my ongoing novel titled Grandma's Verdict
+                             <a href="https://docs.google.com/document/d/1F0B_EHdDQlEDh_QuuITQt-3Z3QSeY5J4h8gLZKL60kg/edit?usp=sharing" title="view an excerpt" target="_blank">here</a>
+                            <p>
+                                Hobbies includes: reading, writing,
+                                watching and playing football and volleyball,
+                                singing and studying nature.
+    
+                            </p>
+    
+                        </p>
+                    </article>
+
+                    <!-- Education information -->
+                    <article class="edu-info col-md-6 pl-3">
+                        <ul class="nav nav-pill d-flex justify-content-start">
+                            <li class="nav-item edu-item">
+                                <span class="active-line actstatus"></span>
+                                <a href="#education" class="nav-link ed active h4" data-toggle="pill" title="my education">
+                                    <i class="fa-solid fa-graduation-cap mr-2"></i>
+                                    Education
+                                </a>
+                            </li>
+                            <li class="nav-item edu-item">
+                                <span class="active-line"></span>
+                                <a href="#skills" class="nav-link ed h4" data-toggle="pill" title="my skills">
+                                    <i class="fa-solid fa-code mr-2"></i>
+                                    Skills
+                                </a>
+                            </li>
+                            <li class="nav-item edu-item">
+                                <span class="active-line"></span>
+                                <a href="#experience" class="nav-link ed h4" data-toggle="pill" title="my work experience">
+                                    <i class="fa-solid fa-briefcase mr-2"></i>
+                                    Work Experience
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Bootstrap tab-content -->
+                        <div class="tab-content d-flex justify-content-center p-2">
+
+                            <!-- education bootstrap navigation pane -->
+                            <div id ="education" class="tab-pane w-100 active">
+                                <div class="institution">
+                                    <h3>Institutions Attended</h3>
+                                    <ul class="school-list pl-3 py-2">
+                                        <li>
+                                            <h4>Federal University of Agriculture, Makurdi</h4>
+                                            <div class="grade-info pl-3 py-0">
+                                                <p>B.Eng Electrical and Electronics Engineering</p>
+                                                <p>Grade : First Class Honours (4.75/5.00)</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h4>Crystal Safety and Training Resources, Portharcourt (2021)</h4>
+                                            <div class="grade-info pl-3 py-0">
+                                                <p>
+                                                    Occupation, Health, Safety and Environment(OHSE 1, 2 and 3)
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h4>ALX Software Engineering</h4>
+                                            <div class="grade-info pl-3 py-0">
+                                                <p>
+                                                    Certificate of completion (with specialization in backend)
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="online-courses">
+                                    <h3>Completed Online Courses</h3>
+                                    <ul class="course-list pl-3 pt-2 mb-0">
+                                        <li>
+                                            <h4>Cisco Networking Academy(Netacad)</h4>
+                                            <div class="grade-info pl-3 py-0">
+                                                <p>Introduction to Cyber security</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h4>Yonsei University</h4>
+                                            <div class="grade-info pl-3 py-0">
+                                                <p>Introduction to TCP/IP</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h4>Meta</h4>
+                                            <div class="grade-info pl-3 py-0">
+                                                <p>Introduction to Front End Development</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="expand-contract">
+                                        <button class="expand"><span>See more</span> <i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+                                        <button class="contract"><span>See less</span> <i class="fa fa-angle-down ml-2" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="see-more-cont pl-3">
+                                        <ul class="see-more-drop">
+                                            <li>
+                                                <h4>University of Buffalo</h4>
+                                                <div class="grade-info pl-3 py-0">
+                                                    <p>Solar Energy Systems Overview</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h4>University of Michigan</h4>
+                                                <div class="grade-info pl-3 py-0">
+                                                    <p>Programming for Everybody(getting started with Python)</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h4>University of Michigan</h4>
+                                                <div class="grade-info pl-3 py-0">
+                                                    <p>Programming for Everybody(Python Data Structures)</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h4>LearnQuest</h4>
+                                                <div class="grade-info pl-3 py-0">
+                                                    <p>Cloud Computing Basics(Cloud 101)</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h4>Cisco Networking Academy(Netacad)</h4>
+                                                <div class="grade-info pl-3 py-0">
+                                                    <p>Networking Devices and Initial Configuration</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h4>Cisco Networking Academy(Netacad)</h4>
+                                                <div class="grade-info pl-3 py-0">
+                                                    <p>Python Essentials 1</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="awards">
+                                    <h3>Awards and Honours</h3>
+                                </div>
+                            </div>
+
+                            <!-- Bootstrap skills pane -->
+                            <div id="skills" class="tab-pane  w-100 p-0 m-0">
+                                <ul class="skills-list">
+                                    <li>
+                                        <a href="" data-toggle="collapse" data-target="#soft-skills" title="show/hide soft skills">
+                                            Soft Skills
+                                        </a>
+                                        <ul class="skill-item collapse" id="soft-skills">
+                                            <li>Good human networking</li>
+                                            <li>Excellent teamwork spirit</li>
+                                            <li>Good oral and written communication skills</li>
+                                            <li>Quick delivery of assignments</li>
+                                            <li>Excellent interpersonal skills</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="collapse" data-target="#hard-skills" title="show/hide hard skills">
+                                            Hard Skills
+                                        </a>
+                                        <ul class="skill-item collapse" id="hard-skills">
+                                            <li>Abilty to work under pressure</li>
+                                            <li>Daring</li>
+                                            <li>Good analytical and problem-solving skills</li>
+                                            <li>Quick grasping of novel ideas</li>
+                                            <li>Unquenchable zeal for improvement</li>
+                                            <li>Stamina for handling difficult and challenging tasks</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="collapse" data-target="#tech-skills" title="show/hide tech skills">
+                                            Digital/Technical Skills
+                                        </a>
+                                        <ul class="skill-item collapse" id="tech-skills">
+                                            <li>
+                                                <a href="" data-toggle="collapse" data-target="#devops" title="show/hide CI/CD and DevOps skills">
+                                                    CI/CD and DevOps
+                                                </a>
+                                                <ul class="skill-item-list collapse" id="devops">
+                                                    <li>Git and Github (intermediate)</li>
+                                                    <li>Docker (basic)</li>
+                                                    <li>Web Application Deployment(Intermediate)</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="" data-toggle="collapse" data-target="#collab-tools" title="show/hide collaborative tools skills">
+                                                    Collaborative and Progress tracking tools
+                                                </a>
+                                                <ul class="skill-item-list collapse" id="collab-tools">
+                                                    <li>Slack</li>
+                                                    <li>Discord</li>
+                                                    <li>Trello board</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="" data-toggle="collapse" data-target="#rdbms" title="show/hide RDBMS skills">
+                                                    RDBMS (Intermediate)
+                                                </a>
+                                                <ul class="skill-item-list collapse" id="rdbms">
+                                                    <li>MySQL</li>
+                                                    <li>Sqlite</li>
+                                                    <li>PostgreSQL</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="" data-toggle="collapse" data-target="#nosql" title="show/hide NoSQL skills">
+                                                    NoSQL Database(Intermediate)
+                                                </a>
+                                                <ul class="skill-item-list collapse" id="nosql">
+                                                    <li>Redis</li>
+                                                    <li>MongoDB</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="" data-toggle="collapse" data-target="#programming-lang" 
+                                                    onclick="widthShow('progress-bar-lang', 'lang-done-lang')" 
+                                                    title="show/hide Programming_languages skills">
+                                                    Programming Languages
+                                                </a>
+                                                <div class="programming-lang collapse mx-4" id="programming-lang">
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>HTML</p>
+                                                            <p class="lang-done-lang">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-lang" dataval="80%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>CSS</p>
+                                                            <p class="lang-done-lang">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-lang" dataval="75%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>JavaScript</p>
+                                                            <p class="lang-done-lang">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-lang" dataval="60%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>Python</p>
+                                                            <p class="lang-done-lang">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-lang" dataval="75%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>C</p>
+                                                            <p class="lang-done-lang">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-lang" dataval="50%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>C++</p>
+                                                            <p class="lang-done-lang">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-lang" dataval="25%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>Matlab</p>
+                                                            <p class="lang-done-lang">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-lang" dataval="30%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>Linux command / Bash scripting</p>
+                                                            <p class="lang-done-lang">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-lang" dataval="30%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="" data-toggle="collapse" data-target="#frontend-frame" 
+                                                    onclick="widthShow('progress-bar-frontend', 'lang-done-frontend')" 
+                                                    title="show/hide frontend_framework skills">
+                                                    Frontend Web framework
+                                                </a>
+                                                <div class="programming-lang collapse ml-4" id="frontend-frame">
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>JQuery</p>
+                                                            <p class="lang-done-frontend">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-frontend" dataval="40%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>ReactJS</p>
+                                                            <p class="lang-done-frontend">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-frontend" dataval="40%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>NextJS</p>
+                                                            <p class="lang-done-frontend">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-frontend" dataval="30%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="" data-toggle="collapse" data-target="#backend-frame" 
+                                                    onclick="widthShow('progress-bar-backend', 'lang-done-backend')" 
+                                                    title="show/hide backend_framework skills">
+                                                    Backend Web framework
+                                                </a>
+                                                <div class="programming-lang collapse ml-4" id="backend-frame">
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>Flask (Python)</p>
+                                                            <p class="lang-done-backend">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-backend" dataval="50%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>Django (Python)</p>
+                                                            <p class="lang-done-backend">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-backend" dataval="50%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>SQLAlchemy (ORM, Python)</p>
+                                                            <p class="lang-done-backend">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-backend" dataval="30%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lang-wrapper">
+                                                        <div class="lang-head">
+                                                            <p>Express (NodeJs)</p>
+                                                            <p class="lang-done-backend">0</p>
+                                                        </div>
+                                                        <div class="progress-wrapper">
+                                                            <div class="progress-bar-backend" dataval="30%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Bootstrap Work Experience pane -->
+                            <div id ="experience" class="tab-pane w-100">
+                                <div class="experience-list">
+                                    <header>
+                                        <p class="company">Niger Delta Power Holding Comapny(NDPHC) - <span class="title">Graduate Engineer(Intern)</span></p>
+                                        <address class="company-addr">mmmm</address>
+                                        <p class="date-range">April 2023 - March 2024</p>
+                                    </header>
+                                    <div class="role-description">
+                                        <ul class="department">
+                                            <li>
+                                                Operations Department
+                                                <ul class="tasks">
+                                                    <li>
+                                                        Performed routine inspection on power generation equipment, 
+                                                        ensuring reliability and safety
+                                                    </li>
+                                                    <li>
+                                                        Collected and recorded data from field instruments, 
+                                                        providing critical information for operational decisions
+                                                    </li>
+                                                    <li>
+                                                        Supported start-up, shutdown and operational activities as 
+                                                        directed by the central control room operator (CCRO)
+                                                    </li>
+                                                    <li>
+                                                        Troubleshoot equipment issues, performing minor repairs and 
+                                                        assisting maintenance teams during major repairs 
+                                                    </li>
+                                                    <li>
+                                                        Assisted the CCRO to monitor and control plant operations 
+                                                        using SCADA systems, ensuring optimal performance and efficiency 
+                                                    </li>
+                                                    <li>
+                                                        Recorded and analyzed operational data, generating reports 
+                                                        on plant performance and fuel consumption
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                Electrical Department(Maintenance)
+                                                <ul class="tasks">
+                                                    <li>
+                                                        Identified and troubleshoot issues on electrical systems, 
+                                                        working with experienced engineers to develop and 
+                                                        implement preventive and corrective (where applicable)  actions
+                                                    </li>
+                                                    <li>
+                                                        Participated in the maintenance, testing and commissioning of 
+                                                        electrical equipment such as transformers, motors, 
+                                                        and switchgear, ensuring availability and reliability
+                                                    </li>
+                                                    <li>
+                                                        Assisted in the design and analysis of electrical systems and components, 
+                                                        performing calculations and simulations to ensure compliance with performance and safety standards
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <div class="expand-contract">
+                                            <button class="expand"><span>See more</span> <i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+                                            <button class="contract"><span>See less</span> <i class="fa fa-angle-down ml-2" aria-hidden="true"></i></button>
+                                        </div>
+                                        <div class="see-more-cont">
+                                            <ul class="see-more-drop">
+                                                <li>
+                                                    Instrumentation and Control(I & C) Department
+                                                    <ul class="tasks">
+                                                        <li>
+                                                            Assisted in the design and 
+                                                            configuration of control systems, including DCS, 
+                                                            PLC, and SCADA, ensuring systems functions as intended 
+                                                        </li>
+                                                        <li>
+                                                            Participated in the calibration, installations, 
+                                                            and maintenance of instrumentation equipment, ensuring accurate and 
+                                                            reliable measurements for process control
+                                                        </li>
+                                                        <li>
+                                                            Monitored control systems to ensure operation 
+                                                            within specified parameters, troubleshooting and diagnosing issues in event of abnormalities
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    Mechanical Department
+                                                    <ul class="tasks">
+                                                        <li>
+                                                            Participated in the maintenance and operations of mechanical equipment such as pumps, 
+                                                            valves, pipes, and HVAC, adhering to maintenance schedules and ensuring efficient operation
+                                                        </li>
+                                                        <li>
+                                                            Identified and troubleshoot issues on mechanical systems, 
+                                                            collaborating with senior colleagues to implement effective corrective actions and improvements
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    Fire and Safety(F & S) Department
+                                                    <ul class="tasks">
+                                                        <li>
+                                                            Participated in regular fire safety inspections and audits, 
+                                                            documenting findings and assisting in implementing corrective actions for noted deficiencies 
+                                                        </li>
+                                                        <li>
+                                                            Supported the development and coordination of 
+                                                            emergency response and drills, participating in training sessions to prepare for potential incidents
+                                                        </li>
+                                                        <li>
+                                                            Participated in the maintenance and testing of fire protection systems, 
+                                                            ensuring reliability and adherence to safety standards 
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="experience-list">
+                                    <header>
+                                        <p class="company">Tektrons Embedded Limited(LTD) - <span class="title">Field Engineer</span></p>
+                                        <address class="company-addr">mmmm</address>
+                                        <p class="date-range">April 2022 - March 2023</p>
+                                    </header>
+                                    <div class="role-description">
+                                        <ul class="tasks">
+                                            <li>
+                                                Designed and installed access control systems for offices and 
+                                                residential properties, ensuring security and functionality
+                                            </li>
+                                            <li>
+                                                Installed and maintained security systems - CCTV cameras, 
+                                                Electric fence, for properties monitoring and intrusion prevention
+                                            </li>
+                                            <li>
+                                                Set up and configured internet devices like router and switches to provide reliable internet services 
+                                            </li>
+                                            <li>
+                                                Installed solar panels and inverters, ensuring optimal panel placements and system configuration for maximum efficiency 
+                                            </li>
+                                            <li>
+                                                Collaborated with other team members to ensure good service delivery
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="experience-list">
+                                    <header>
+                                        <p class="company">Government Craft Development  Center(GCDC) - <span class="title">Instructor/Tutor Electrical Dept.</span></p>
+                                        <address class="company-addr">mmmm</address>
+                                        <p class="date-range">January 2021 - January 2022</p>
+                                    </header>
+                                    <div class="role-description">
+                                        <ul class="tasks">
+                                            <li>
+                                                Developed and delivered comprehensive lesson plans covering a wide range of of 
+                                                electrical engineering topics including circuit design, electrical safety and troubleshooting 
+                                            </li>
+                                            <li>
+                                                Designed and administered assessments to evaluate students’ progress and understanding of the material 
+                                            </li>
+                                            <li>
+                                                Guided students through practical exercises and projects, 
+                                                emphasizing the applications of theoretical knowledge to real world scenarios
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+            </section>
+            <hr />
+
+            <!-- Portfolio section -->
+            <section id="portfolio" class="portfolio hide">
+                <h2>My Portfolio</h2>
+                <header>
+                    <ul class="nav nav-pill d-flex justify-content-center">
+                    <li class="nav-item">
+                        <span class="active-line-port actstatus"></span>
+                        <a href="#undergraduate" class="nav-link port" data-toggle="pill">
+                            Undergraduate Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="active-line-port"></span>
+                        <a href="#alxse" class="nav-link port" data-toggle="pill">
+                            Software/Web Application Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="active-line-port"></span>
+                        <a href="#current" class="nav-link port" data-toggle="pill">
+                            Ongoing SE Projects
+                        </a>
+                    </li>
+                </ul>
+                </header>
+                <section class="tab-content pt-4">
+                    <article id="undergraduate" class="tab-pane active">
+                        <div class="projects-cont">
+                            <div class="row">
+                                <div class="col-md-4 project-item">
+                                    <h3>Design and Construction of a low power Audio Amplifier using LM386</h3>
+                                    <div class="port-image">
+                                        <img src="{% static '/undergrad-1.jpeg' %}" alt="Image-undergraduate-projects one">
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            I led a team of four members in a mini project to design and construct a 
+                                            low-power audio amplifier using the LM386 integrated circuit (IC).
+                                        </p>
+                                        <p>
+                                            The Initial prototype was assembled on a breadboard, and after successful testing,
+                                             it was permanently soldered onto a Vero board for final packaging.
+                                        </p>
+                                        <p>
+                                            To test the amplifier, an audio jack was connected from a phone with a music player 
+                                            to the amplifier's input, resulting in amplified audio output. A 10K potentiometer 
+                                            was used a both a switch and volume control. You can read more about a similar project
+                                             <a href="#">here</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 project-item">
+                                    <h3>Design and Construction of Up and Down Decade Counter using JK Flip Flop</h3>
+                                    <div class="port-image">
+                                        <img src="{% static '/undergrad-2.png' %}" alt="Image-undergraduate-projects one">
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            I led a team of four members in another group project to design and construct an
+                                             up/down decade counter using JK flip-flops.
+                                        </p>
+                                        <p>
+                                            To achieve counting from 0 to 9 and 9 to 0, we utilized four JK flip-flops. The procedures followed included
+                                             constructing the state transition table, determining the J and K inputs for each of the four JK flip-flops
+                                              using their characteristic tables and karnaugh maps, and simulating the resulting circuit using Proteus
+                                               prototyping software. Hardware implementation and construction were carried out after successful simulation.
+                                                Read more about JK flip-flops <a href="#">here</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 project-item">
+                                    <h3>Design and Construction of a GUI based Wireless Home Appliance Switching system using Matlab</h3>
+                                    <div class="port-image">
+                                        <img src="{% static '/undergrad-3.png' %}" alt="Image-undergraduate-projects one">
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            The project employs a set of buttons designed using MATLAB to control the 
+                                            switching of remote home appliances via GSM technology. 
+                                            The design is divided into two main units: the transmitting unit and 
+                                            the receiving unit.
+                                        </p>
+                                        <div class="expand-contract">
+                                            <button class="expand"><span>Read more</span> <i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+                                            <button class="contract"><span>See less</span> <i class="fa fa-angle-down ml-2" aria-hidden="true"></i></button>
+                                        </div>
+                                        <div class="see-more-cont">
+                                            <div class="see-more-drop">
+                                                <p>
+                                                    The transmitting unit consists of a graphical user interface (GUI) 
+                                                    implemented with MATLAB, a USB-to-TTL converter, and a GSM module that 
+                                                    functions as the wireless transmitter. The GUI buttons are programmed to 
+                                                    send commands through the GSM module to the remote home appliances when toggled. 
+                                                    Depending on the command issued, the target appliance is either switched on or off.
+                                                </p>
+                                                <p>
+                                                    The receiving unit includes another GSM module to receive 
+                                                    the transmitted commands, a microcontroller (Arduino Nano) 
+                                                    to process these commands, and relay modules to execute the switching. 
+                                                    The microcontroller interprets the received commands and toggles the 
+                                                    state of its digital output pins accordingly. These pins are connected 
+                                                    to the relay modules, which then make or break the circuit, thereby 
+                                                    controlling the power state of the appliances connected to their 
+                                                    high-voltage terminals. You can view the full work 
+                                                    <a href="{% static '/Final_year_project.pdf' %}" target="_blank">here</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article id="alxse" class="tab-pane">
+                        <div class="projects-cont">
+                            <div class="row">
+                                <div class="col-md-3 project-item">
+                                    <h3>AirBnB Clone</h3>
+                                    <div class="port-image">
+                                        <img src="{% static '/alxse-1.png' %}" alt="Image-undergraduate-projects one">
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            This is a full-stack project we implemented as part of our coursework at ALX Software 
+                                            Engineering School. In this project, we developed a simplified version of the <a href="#">
+                                                Airbnb website.
+                                            </a>
+                                        </p>
+                                        <div class="expand-contract">
+                                            <button class="expand"><span>Read more</span> <i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+                                            <button class="contract"><span>See less</span> <i class="fa fa-angle-down ml-2" aria-hidden="true"></i></button>
+                                        </div>
+                                        <div class="see-more-cont">
+                                            <div class="see-more-drop">
+                                                <p>
+                                                    Over a period of approximately four months, we conducted multiple iterations of the
+                                                     project, each adding more functionality and features to the previous version.
+                                                </p>
+                                                <p>
+                                                    By the end, we successfully implemented a complete web application comprising the 
+                                                    following components:
+                                                    <ul>
+                                                        <li>
+                                                            A command line interpreter to manipulate data without visual interface, similar 
+                                                            to a shell
+                                                        </li>
+                                                        <li>
+                                                            A website (the frontend) that presents the final product to the world, both static and 
+                                                            dynamic
+                                                        </li>
+                                                        <li>
+                                                            A database and file storage system for data management
+                                                        </li>
+                                                        <li>
+                                                            A RESTFUL API facilitating communication between the frontend and backend, enabling data 
+                                                            retrieval, creation, deletion and updates
+                                                        </li>
+                                                    </ul>
+                                                    The github repository for the final iteration of the project, which includes all previous iteration 
+                                                    features, can be accessed 
+                                                    <a href="https://github.com/matthiasVincent/AirBnB_clone_v4" target="_blank">
+                                                        here
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 project-item">
+                                    <h3>
+                                        Letstalk-one: Social media application designed using JQuery as frontend 
+                                        framework and Django as backend framework
+                                    </h3>
+                                    <div class="port-image">
+                                        <!-- <img src="{% static '/contact-background.png' %}" alt="Image-undergraduate-projects one"> -->
+                                         <video src="{% static '/alxse-2.mp4' %}" controls loop autoplay>
+                                            <source type="video/mp4">
+                                            your browser does not support this video type
+                                         </video>
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            In this project, I designed a full-stack web application called Letstalk, 
+                                            a social media platform, as part of my end-of-foundation portfolio project at 
+                                            ALX Software Engineering School. My motivation for the project was to understand the intricacies of 
+                                            developing a comprehensive web application, particularly a social media application. 
+                                            I utilized the following technologies:
+                                        </p>
+                                        <div class="expand-contract">
+                                            <button class="expand"><span>Read more</span> <i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+                                            <button class="contract"><span>See less</span> <i class="fa fa-angle-down ml-2" aria-hidden="true"></i></button>
+                                        </div>
+                                        <div class="see-more-cont">
+                                            <div class="see-more-drop">
+                                                <ul>
+                                                    <li>
+                                                        Frontend
+                                                        <ul>
+                                                            <li>HTML5</li>
+                                                            <li>CSS3</li>
+                                                            <li>JavaScript</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Frontend framework
+                                                        <ul>
+                                                            <li>Bootstrap v4</li>
+                                                            <li>jQuery v3</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Backend database
+                                                        <ul>
+                                                            <li>SQLite (development)</li>
+                                                            <li>MySQL (production)</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Backend web framework
+                                                        <ul>
+                                                            <li>Django</li>
+                                                            <li>Django Rest Framework for RESTful API</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Web Server and Reverse Proxy
+                                                        <ul>
+                                                            <li>Nginx</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Application Server
+                                                        <ul>
+                                                            <li>Gunicorn for HTTP requests</li>
+                                                            <li>Daphne for WebSocket requests</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Server
+                                                        <ul>
+                                                            <li>Ubuntu 20.04 (Linux OS)</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <p>The github repository  for the final MVP can be accessed 
+                                                    <a href="https://github.com/matthiasVincent/Letstalk" target="_blank">here</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 project-item">
+                                    <h3>
+                                        Files-Manager
+                                    </h3>
+                                    <div class="port-image">
+                                        <img src="{% static '/alxse-4.jpg' %}" alt="Image-undergraduate-projects three">
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            This application was developed as part of our coursework in the ALX Software Engineering backend specialization. 
+                                            It serves as a comprehensive project that consolidates all the tasks completed during our backend trimester. 
+                                            The application features authentication, 
+                                            Node.js, Redis, pagination, and background processing for time-consuming tasks such as file processing.
+                                        </p>
+                                        <p>
+                                            This project provided an intensive review of the skills acquired throughout the course. 
+                                            You can view the final product on github
+                                            <a href="https://github.com/matthiasVincent/alx-files_manager" target="_blank">
+                                                here
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 project-item">
+                                    <h3>
+                                        Letstalk-two: Social media application implemented using ReactJS as frontend 
+                                        framework and Django as backend framework
+                                    </h3>
+                                    <div class="port-image">
+                                        <!-- <img src="{% static '/alxse-3.mp4' %}" alt="Image-undergraduate-projects four"> -->
+                                        <video src="{% static '/alxse-3.mp4' %}" controls loop autoplay>
+                                            <source type="video/mp4">
+                                            your browser does not support this video type
+                                         </video>
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            In this three-month end-of-backend-specialization portfolio project at ALX 
+                                            Software Engineering School, I designed a full-stack web application called Letstalk, 
+                                            a social media platform.
+                                        </p>
+                                        <p>
+                                            Previously, I had implemented a version of this project as my end-of-foundation portfolio 
+                                            project, using a different frontend web framework. However, I sought to enhance and 
+                                            modernize it by developing a Single Page Application (SPA) version utilizing ReactJS, a 
+                                            high-performance frontend web framework developed by Meta (formerly Facebook). This endeavour 
+                                            allowed me to apply the skills I acquired through self-study of ReactJS. The following 
+                                            technologies were employed:
+                                        </p>
+                                        <div class="expand-contract">
+                                            <button class="expand"><span>Read more</span> <i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+                                            <button class="contract"><span>See less</span> <i class="fa fa-angle-down ml-2" aria-hidden="true"></i></button>
+                                        </div>
+                                        <div class="see-more-cont">
+                                            <div class="see-more-drop">
+                                                <ul>
+                                                    <li>
+                                                        Frontend
+                                                        <ul>
+                                                            <li>HTML5</li>
+                                                            <li>CSS3</li>
+                                                            <li>JavaScript</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Frontend framework
+                                                        <ul>
+                                                            <li>ReactJS</li>
+                                                            <li>React Router DOM</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Backend database
+                                                        <ul>
+                                                            <li>SQLite (development)</li>
+                                                            <li>MySQL (production)</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Backend web framework
+                                                        <ul>
+                                                            <li>Django</li>
+                                                            <li>Django Rest Framework for RESTful API</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Web Server and Reverse Proxy
+                                                        <ul>
+                                                            <li>Nginx</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Application Server
+                                                        <ul>
+                                                            <li>Gunicorn for HTTP requests</li>
+                                                            <li>Daphne for WebSocket requests</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Server
+                                                        <ul>
+                                                            <li>Ubuntu 20.04 (Linux OS)</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <p>The github repository  for the final MVP can be accessed 
+                                                    <a href="https://github.com/matthiasVincent/reactLetstalk" target="_blank">here</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article id="current" class="tab-pane">
+                        <div class="projects-cont">
+                            <div class="row">
+                                <div class="col-md-4 project-item">
+                                    <h3>
+                                        Letstalk-three: Social media application implemented using NextJS as frontend 
+                                        framework and Django as backend framework
+                                    </h3>
+                                    <div class="port-image">
+                                        <img src="{% static '/contact-background.png' %}" alt="Image-undergraduate-projects one">
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            In this Project...
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 project-item">
+                                    <h3>
+                                        College Management System using Django
+                                    </h3>
+                                    <div class="port-image">
+                                        <img src="{% static '/current-1.jpg' %}" alt="Image-undergraduate-projects one">
+                                    </div>
+                                    <div class="port-short-summary">
+                                        <p>
+                                            In this Project...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </section>
+            <hr />
+
+            <!-- Contact section -->
+            <section id="contact" class="contact hide">
+                <header>
+                    <h2>Contact me</h2>
+                </header>
+                <div class="row">
+                    <article class="contact-info col-md-4">
+                        <h4>My Contacts</h4>
+                        <div class="wrapper pt-3">
+                            <div class="back-image-cont">
+                                <img src="{% static '/contact-background.png' %}" alt="contact-background picture" />
+                            </div>
+    
+                            <div class="contacts">
+                                <div class="contact-item">
+                                    <a href="#" title="09028369378">
+                                        <i class="fa-solid fa-phone text-success"></i>
+                                        <!-- <span class="pl-3 text-white h4">09028369378</span> -->
+                                    </a>
+                                </div>
+                                <div class="contact-item">
+                                    <a href="https://www.facebook.com/matthias.sundayoduh" title="facebook profile" target="_blank">
+                                        <i class="fa-brands fa-facebook"></i>
+                                        <!-- <span class="pl-3 text-white h4">facebook</span> -->
+                                    </a>
+                                </div>
+                                <div class="contact-item">
+                                    <a href="sundayoduhmatthias@gmail.com" title="email message" target="_blank">
+                                        <i class="fa-regular fa-envelope text-light"></i>
+                                        <!-- <span class="pl-3 text-white h4">Email</span> -->
+                                    </a>
+                                </div>
+                                <div class="contact-item">
+                                    <a href="https://www.linkedin.com/in/matthias-sunday-oduh-4a364122b" 
+                                        title="linkedin profile"
+                                        target="_blank">
+                                        <i class="fa-brands fa-linkedin-in text-primary"></i>
+                                        <!-- <span class="pl-3 text-white h4">linkedin</span> -->
+                                    </a>
+                                </div>
+                                <div class="contact-item">
+                                    <a href="https://github.com/matthiasVincent" title="github profile" target="_blank">
+                                        <i class="fa-brands fa-github  text-light"></i>
+                                        <!-- <span class="pl-3 text-white h3">github</span> -->
+                                    </a>
+                                </div>
+                                <div class="contact-item">
+                                    <a href="#" title="Whatsapp message">
+                                        <i class="fa-brands fa-whatsapp text-success"></i>
+                                        <!-- <span class="pl-3 text-white h3">whatsapp</span> -->
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="send-message col-md-6">
+                        <h4>Drop a message</h4>
+                        <form action="" id="feedback_form" method="post">
+                            {% csrf_token %}
+                            <div class="input-wrapper">
+                                <label for="name">Full Name:</label>
+                                <input type="text" name="name" class="form-data" id="name" placeholder="Your name" required>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="phone">Phone Number:</label>
+                                <input type="number" name="phone_no" class="form-data" id="phone" placeholder="+2348000000009" required>
+                            </div>
+                           <div class="input-wrapper">
+                                <label for="email">Email address:</label>
+                                <input type="email" name="email" class="form-data" id="email" placeholder="you@gmail.com" required>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="msg">Message:</label>
+                                <textarea id="msg" name="message" class="form-data" placeholder="Your message" required rows="4"></textarea>
+                            </div>
+                            <div class="input-wrapper">
+                                <button type="submit" class="feedback_submit" id="feedback_submit">Send</button>
+                            </div>
+                        </form>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        {% block footer %}
+        <footer class="container-fluid fixed-bottom d-flex align-items-center justify-content-center p-3"
+            style="background-color: black;">
+            <p class="text-white my-auto rh" >
+                <small style="font-size:1rem; font-weight:300;">&copy; Matthias</small>,
+                <span id="f" style="font-size:1rem;"></span>
+            </p>
+        </footer>
+        {% endblock %}
+        <script src="{% static '/jquery-3.7.0.js' %}"></script>
+        <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'feedback.js' %}"></script>
+        <script src="{% static '/home.js' %}"></script>
+    </body>
+</html>
