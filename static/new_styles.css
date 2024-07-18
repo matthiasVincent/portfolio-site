@@ -41,6 +41,9 @@ ul{
     visibility: hidden;
 }
 
+.modal {
+    font-family: 'Poppins', sans-serif;
+}
 /* section hero page styles  */
 
 .hero-section{

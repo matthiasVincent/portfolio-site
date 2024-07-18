@@ -81,6 +81,48 @@
             </div>
         </div>
 
+        <!-- Modal for Cv type pop up -->
+         <div class="modal" id="cvModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    
+                    <!-- Modal Header -->
+                     <div class="modal-header">
+                        <h4 class="modal-title text-primary">Select CV type to download</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     </div>
+
+                     <!-- Modal body -->
+                      <div class="modal-body">
+                        <ul class="nav d-flex flex-column">
+                            <li class="nav-item p-3">
+                                <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.pdf' %}" 
+                                    class="nav-item btn btn-outline-success" 
+                                    style="font-size: 20px;" download>
+                                    Download pdf
+                                    <img src="{% static '/pdf_icon.svg' %}" alt="Pdf file icon" width="20" height="20" class="ml-4">
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li class="nav-item p-3">
+                                <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.docx' %}"
+                                    class="nav-item btn btn-outline-success" 
+                                    style="font-size: 20px;" download>
+                                    Download docx
+                                    <img src="{% static '/doc_icon.svg' %}" alt="Pdf file icon" width="20" height="20" class="ml-4">
+                                </a>
+                            </li>
+                        </ul>
+                      </div>
+
+                      <!-- Modal footer -->
+                       <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-danger">close</button>
+                       </div>
+                </div>
+            </div>
+         </div>
+
         
         <main class="main-page">
 
@@ -102,16 +144,9 @@
                                 I am interestingly a passionate teacher with unrivalled attention to posterity. As an Electrical and Electronic Engineer, I hope
                                 to specialize in control system engineering.
                             </p>
-                            <div class="dropdown dropup">
-                                <button class="download-cv" title="download my CV" data-toggle="dropdown">Download Cv
-                                    <span class="ml-3 p-2 icon"><i class="fas fa-download"></i></span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.pdf' %}" class="dropdown-item" download>download pdf</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.docx' %}" class="dropdown-item" download>download docx</a>
-                                </div>
-                            </div>
+                            <button class="download-cv" title="download my CV" data-toggle="modal" data-target="#cvModal">Download Cv
+                                <span class="ml-3 p-2 icon"><i class="fas fa-download"></i></span>
+                            </button>
                         </article>
                     </div>
                 </div>

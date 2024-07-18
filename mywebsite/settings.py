@@ -29,7 +29,7 @@ env.read_env()
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['pythonanywhere.com', 'Matthias28908ue14.pythonanywhere.com', 'localhost', '127.0.0.1']
 
