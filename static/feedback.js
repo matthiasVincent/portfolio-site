@@ -2,7 +2,7 @@ $(document).ready(
     function()
         {
             $('[data-toggle="tooltip"]').tooltip();
-            console.log("content loaded and ready")
+            // console.log("content loaded and ready")
 
             $('#feedback_submit').click(
                 function(ev)
