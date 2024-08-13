@@ -27,7 +27,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-sm  navbar-dark fixed-top py-0" style="background-color: black;">
-                <a href="#" class="navbar-brand  p-1" style="width: 60px; height: 60px; border-radius: 50%;">
+                <a href="#" class="navbar-brand  p-1" style="width: 50px; height: 50px; border-radius: 50%;">
                     <img src="{% static '/mvs2.png' %}" alt="logo" class="img-thumbnail" style="width: 100%; height:100%; border-radius: 50%; background-color: black;">
                 </a>
 
@@ -88,28 +88,47 @@
                     
                     <!-- Modal Header -->
                      <div class="modal-header">
-                        <h4 class="modal-title text-primary">Select CV type to download</h4>
+                        <h4 class="modal-title text-primary">Select CV type to view/download</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                      </div>
 
                      <!-- Modal body -->
                       <div class="modal-body">
                         <ul class="nav d-flex flex-column">
-                            <li class="nav-item p-3">
+                            <li class="nav-item p-3 d-flex justify-content-between"">
+                                <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.pdf' %}" 
+                                    class="nav-item btn btn-outline-success" 
+                                    style="font-size: 20px;"
+                                    target="_blank">
+                                    <span title="click to view pdf">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                        <img src="{% static '/pdf_icon.svg' %}" alt="Pdf file icon" width="20" height="20" class="ml-2">
+                                    </span>
+                                </a>
                                 <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.pdf' %}" 
                                     class="nav-item btn btn-outline-success" 
                                     style="font-size: 20px;" download>
-                                    Download pdf
-                                    <img src="{% static '/pdf_icon.svg' %}" alt="Pdf file icon" width="20" height="20" class="ml-4">
+                                    <span title="click to download pdf">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <img src="{% static '/pdf_icon.svg' %}" alt="Pdf file icon" width="20" height="20" class="ml-2">
+                                    </span>
                                 </a>
                             </li>
                             <li class="dropdown-divider"></li>
-                            <li class="nav-item p-3">
+                            <li class="nav-item p-3 d-flex justify-content-between">
+                                <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.docx' %}"
+                                    class="nav-item btn btn-outline-success" 
+                                    style="font-size: 20px;">
+                                    <span title="click to view docx"><i class="fa fa-eye" aria-hidden="true"></i>
+                                        <img src="{% static '/doc_icon.svg' %}" alt="Pdf file icon" width="20" height="20" class="ml-2">
+                                    </span>
+                                </a>
                                 <a href="{% static '/MATTHIAS_SUNDAY_ODUH_CV.docx' %}"
                                     class="nav-item btn btn-outline-success" 
                                     style="font-size: 20px;" download>
-                                    Download docx
-                                    <img src="{% static '/doc_icon.svg' %}" alt="Pdf file icon" width="20" height="20" class="ml-4">
+                                    <span title="click to download docx"><i class="fa fa-download" aria-hidden="true"></i>
+                                        <img src="{% static '/doc_icon.svg' %}" alt="Pdf file icon" width="20" height="20" class="ml-2">
+                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -215,7 +234,7 @@
 
                     <!-- Education information -->
                     <article class="edu-info col-md-6 pl-3">
-                        <ul class="nav nav-pill d-flex justify-content-start">
+                        <ul class="nav nav-pill">
                             <li class="nav-item edu-item">
                                 <span class="active-line actstatus"></span>
                                 <a href="#education" class="nav-link ed active h4" data-toggle="pill" title="my education">
@@ -348,10 +367,14 @@
                             <div id="skills" class="tab-pane  w-100 p-0 m-0">
                                 <ul class="skills-list">
                                     <li>
-                                        <a href="" data-toggle="collapse" data-target="#soft-skills" title="show/hide soft skills">
-                                            Soft Skills
-                                        </a>
-                                        <ul class="skill-item collapse" id="soft-skills">
+                                        <div class="skill-drop">
+                                            <span>Soft Skills</span>
+                                            <div class="icon-drop-close">
+                                                <span class="icon-drop plus active" title="click to expand"><i class="fa fa-plus text-light" aria-hidden="true"></i></span>
+                                                <span class="icon-drop minus" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                            </div>
+                                        </div>
+                                        <ul class="skill-item close">
                                             <li>Good human networking</li>
                                             <li>Excellent teamwork spirit</li>
                                             <li>Good oral and written communication skills</li>
@@ -360,10 +383,14 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="" data-toggle="collapse" data-target="#hard-skills" title="show/hide hard skills">
-                                            Hard Skills
-                                        </a>
-                                        <ul class="skill-item collapse" id="hard-skills">
+                                        <div  class="skill-drop">
+                                            <span>Hard Skills</span>
+                                            <div class="icon-drop-close">
+                                                <span class="icon-drop plus active" title="click to expand"><i class="fa fa-plus text-light" aria-hidden="true"></i></span>
+                                                <span class="icon-drop minus" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                            </div>
+                                        </div>
+                                        <ul class="skill-item close">
                                             <li>Abilty to work under pressure</li>
                                             <li>Daring</li>
                                             <li>Good analytical and problem-solving skills</li>
@@ -373,56 +400,82 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="" data-toggle="collapse" data-target="#tech-skills" title="show/hide tech skills">
-                                            Digital/Technical Skills
-                                        </a>
-                                        <ul class="skill-item collapse" id="tech-skills">
+                                        <div class="skill-drop">
+                                            <span>Tech Skills</span>
+                                            <div class="icon-drop-close">
+                                                <span class="icon-drop plus active" title="click to expand"><i class="fa fa-plus text-light" aria-hidden="true"></i></span>
+                                                <span class="icon-drop minus" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                            </div>
+                                        </div>
+                                        <ul class="skill-item close">
                                             <li>
-                                                <a href="" data-toggle="collapse" data-target="#devops" title="show/hide CI/CD and DevOps skills">
-                                                    CI/CD and DevOps
-                                                </a>
-                                                <ul class="skill-item-list collapse" id="devops">
+                                                <div  class="skill-drop">
+                                                    <span>CI/DC and DevOps</span>
+                                                    <div class="icon-drop-close">
+                                                        <span class="icon-drop plus-item active" title="click to expand"><i class="fa fa-plus text-light" aria-hidden="true"></i></span>
+                                                        <span class="icon-drop minus-item" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </div>
+                                                <ul class="skill-item-list close">
                                                     <li>Git and Github (intermediate)</li>
                                                     <li>Docker (basic)</li>
                                                     <li>Web Application Deployment(Intermediate)</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="" data-toggle="collapse" data-target="#collab-tools" title="show/hide collaborative tools skills">
-                                                    Collaborative and Progress tracking tools
-                                                </a>
-                                                <ul class="skill-item-list collapse" id="collab-tools">
+                                                <div  class="skill-drop">
+                                                    <span>Collaborative and Progress tracking tools</span>
+                                                    <div class="icon-drop-close">
+                                                        <span class="icon-drop plus-item active" title="click to expand"><i class="fa fa-plus text-light" aria-hidden="true"></i></span>
+                                                        <span class="icon-drop minus-item" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </div>
+                                                <ul class="skill-item-list close">
                                                     <li>Slack</li>
                                                     <li>Discord</li>
                                                     <li>Trello board</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="" data-toggle="collapse" data-target="#rdbms" title="show/hide RDBMS skills">
-                                                    RDBMS (Intermediate)
-                                                </a>
-                                                <ul class="skill-item-list collapse" id="rdbms">
+                                                <div  class="skill-drop">
+                                                    <span>RDBMS (Intermediate)</span>
+                                                    <div class="icon-drop-close">
+                                                        <span class="icon-drop plus-item active" title="click to expand"><i class="fa fa-plus text-light" aria-hidden="true"></i></span>
+                                                        <span class="icon-drop minus-item" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </div>
+                                                <ul class="skill-item-list close">
                                                     <li>MySQL</li>
-                                                    <li>Sqlite</li>
+                                                    <li>SQlite</li>
                                                     <li>PostgreSQL</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="" data-toggle="collapse" data-target="#nosql" title="show/hide NoSQL skills">
-                                                    NoSQL Database(Intermediate)
-                                                </a>
-                                                <ul class="skill-item-list collapse" id="nosql">
+                                                <div  class="skill-drop">
+                                                    <span>NoSQL Database(Intermediate)</span>
+                                                    <div class="icon-drop-close">
+                                                        <span class="icon-drop plus-item active" title="click to expand"><i class="fa fa-plus text-light" aria-hidden="true"></i></span>
+                                                        <span class="icon-drop minus-item" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </div>
+                                                <ul class="skill-item-list close">
                                                     <li>Redis</li>
                                                     <li>MongoDB</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="" data-toggle="collapse" data-target="#programming-lang" 
-                                                    onclick="widthShow('progress-bar-lang', 'lang-done-lang')" 
-                                                    title="show/hide Programming_languages skills">
-                                                    Programming Languages
-                                                </a>
-                                                <div class="programming-lang collapse mx-4" id="programming-lang">
+                                                <div  class="skill-drop">
+                                                    <span>Programming Languages</span>
+                                                    <div class="icon-drop-close">
+                                                        <span class="icon-drop plus-item active"
+                                                            title="click to expand"
+                                                            onclick="widthShow('progress-bar-lang', 'lang-done-lang')">
+                                                            <i class="fa fa-plus text-light" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="icon-drop minus-item" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="skill-item-list close programming-lang">
                                                     <div class="lang-wrapper">
                                                         <div class="lang-head">
                                                             <p>HTML</p>
@@ -498,12 +551,18 @@
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="" data-toggle="collapse" data-target="#frontend-frame" 
-                                                    onclick="widthShow('progress-bar-frontend', 'lang-done-frontend')" 
-                                                    title="show/hide frontend_framework skills">
-                                                    Frontend Web framework
-                                                </a>
-                                                <div class="programming-lang collapse ml-4" id="frontend-frame">
+                                                <div  class="skill-drop">
+                                                    <span>Frontend Web Framework</span>
+                                                    <div class="icon-drop-close">
+                                                        <span class="icon-drop plus-item active"
+                                                            title="click to expand"
+                                                            onclick="widthShow('progress-bar-frontend', 'lang-done-frontend')">
+                                                            <i class="fa fa-plus text-light" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="icon-drop minus-item" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="skill-item-list close programming-lang">
                                                     <div class="lang-wrapper">
                                                         <div class="lang-head">
                                                             <p>JQuery</p>
@@ -534,12 +593,18 @@
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="" data-toggle="collapse" data-target="#backend-frame" 
-                                                    onclick="widthShow('progress-bar-backend', 'lang-done-backend')" 
-                                                    title="show/hide backend_framework skills">
-                                                    Backend Web framework
-                                                </a>
-                                                <div class="programming-lang collapse ml-4" id="backend-frame">
+                                                <div  class="skill-drop">
+                                                    <span>Backend Web Framework</span>
+                                                    <div class="icon-drop-close">
+                                                        <span class="icon-drop plus-item active"
+                                                            title="click to expand"
+                                                            onclick="widthShow('progress-bar-backend', 'lang-done-backend')">
+                                                            <i class="fa fa-plus text-light" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="icon-drop minus-item" title="click to close"><i class="fa fa-minus text-light" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="skill-item-list close programming-lang">
                                                     <div class="lang-wrapper">
                                                         <div class="lang-head">
                                                             <p>Flask (Python)</p>
@@ -588,7 +653,10 @@
                                 <div class="experience-list">
                                     <header>
                                         <p class="company">Niger Delta Power Holding Comapny(NDPHC) - <span class="title">Graduate Engineer(Intern)</span></p>
-                                        <address class="company-addr">mmmm</address>
+                                        <div class="marquee-wrap">
+                                            <p>HQ Address: 1490 Samuel Ademulegun Ave, Central Business District, Abuja, Nigeria. 
+                                                Company Address: Ogorode Generation Company, Ogorode, Sapele, Delta, State, Nigeria</p>
+                                        </div>
                                         <p class="date-range">April 2023 - March 2024</p>
                                     </header>
                                     <div class="role-description">
@@ -705,7 +773,9 @@
                                 <div class="experience-list">
                                     <header>
                                         <p class="company">Tektrons Embedded Limited(LTD) - <span class="title">Field Engineer</span></p>
-                                        <address class="company-addr">mmmm</address>
+                                        <div class="marquee-wrap">
+                                            <p>Address: No 9 Jere Street, Opposite Rita Lori,s Hotel, Garki, Abuja, FCT, Nigeria</p>
+                                        </div>
                                         <p class="date-range">April 2022 - March 2023</p>
                                     </header>
                                     <div class="role-description">
@@ -734,7 +804,9 @@
                                 <div class="experience-list">
                                     <header>
                                         <p class="company">Government Craft Development  Center(GCDC) - <span class="title">Instructor/Tutor Electrical Dept.</span></p>
-                                        <address class="company-addr">mmmm</address>
+                                        <div class="marquee-wrap">
+                                            <p>Address: Polaku, Gbarain, Yenagoa LGA, Bayelsa State</p>
+                                        </div>
                                         <p class="date-range">January 2021 - January 2022</p>
                                     </header>
                                     <div class="role-description">
@@ -763,20 +835,20 @@
             <section id="portfolio" class="portfolio hide">
                 <h2>My Portfolio</h2>
                 <header>
-                    <ul class="nav nav-pill d-flex justify-content-center">
-                    <li class="nav-item">
+                    <ul class="nav nav-pill portfolio-links">
+                    <li class="nav-item mb-1">
                         <span class="active-line-port actstatus"></span>
                         <a href="#undergraduate" class="nav-link port" data-toggle="pill">
                             Undergraduate Projects
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mb-1">
                         <span class="active-line-port"></span>
                         <a href="#alxse" class="nav-link port" data-toggle="pill">
                             Software/Web Application Projects
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mb-1">
                         <span class="active-line-port"></span>
                         <a href="#current" class="nav-link port" data-toggle="pill">
                             Ongoing SE Projects
@@ -933,7 +1005,6 @@
                                         framework and Django as backend framework
                                     </h3>
                                     <div class="port-image">
-                                        <!-- <img src="{% static '/contact-background.png' %}" alt="Image-undergraduate-projects one"> -->
                                          <video src="{% static '/alxse-2.mp4' %}" controls loop autoplay>
                                             <source type="video/mp4">
                                             your browser does not support this video type
@@ -1039,7 +1110,6 @@
                                         framework and Django as backend framework
                                     </h3>
                                     <div class="port-image">
-                                        <!-- <img src="{% static '/alxse-3.mp4' %}" alt="Image-undergraduate-projects four"> -->
                                         <video src="{% static '/alxse-3.mp4' %}" controls loop autoplay>
                                             <source type="video/mp4">
                                             your browser does not support this video type

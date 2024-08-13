@@ -12,9 +12,17 @@
  const eduMore = document.querySelectorAll('.expand')
  const eduLess = document.querySelectorAll('.contract')
  const seeMore = document.querySelectorAll('.see-more-drop')
+ const skill_items = document.querySelectorAll('.skill-item')
+ const icon_drop_plus = document.querySelectorAll('.plus')
+ const icon_drop_minus = document.querySelectorAll('.minus')
+ const skill_item_list = document.querySelectorAll('.skill-item-list')
+ const icon_drop_plus_item = document.querySelectorAll('.plus-item')
+ const icon_drop_minus_item = document.querySelectorAll('.minus-item')
+ // console.log(skill_items.length, icon_drop_plus.length, icon_drop_minus.length)
  //console.log(portfolio.length, active_port.length)
 
 
+ // handle what happeens when see more button is clicked
  for (let i = 0; i < eduMore.length; i++){
     eduMore[i].addEventListener('click', () => {
     eduMore[i].classList.add('hide')
@@ -23,6 +31,7 @@
      })
  }
 
+// handle what happeens when see less button is clicked
  for (let i = 0; i < eduLess.length; i++){
     eduLess[i].addEventListener('click', () => {
     eduLess[i].classList.remove('active')
@@ -30,6 +39,42 @@
     eduMore[i].classList.remove('hide')
      })
  }
+
+
+// handles what happens when the plus icon is clicked
+    for (let i = 0; i < icon_drop_plus.length; i++){
+        icon_drop_plus[i].addEventListener('click', () => {
+        icon_drop_plus[i].classList.remove('active')
+        icon_drop_minus[i].classList.add('active')
+        skill_items[i].classList.remove('close')
+        })
+    }
+// handles what happens when the minus icon is clicked
+    for (let i = 0; i < icon_drop_minus.length; i++){
+        icon_drop_minus[i].addEventListener('click', () => {
+        icon_drop_minus[i].classList.remove('active')
+        icon_drop_plus[i].classList.add('active')
+        skill_items[i].classList.add('close')
+        })
+    }
+
+// handles what happens when the plus item icon is clicked
+    for (let i = 0; i < icon_drop_plus_item.length; i++){
+        icon_drop_plus_item[i].addEventListener('click', () => {
+        icon_drop_plus_item[i].classList.remove('active')
+        icon_drop_minus_item[i].classList.add('active')
+        skill_item_list[i].classList.remove('close')
+        })
+    }
+
+// handles what happens when the minus item icon is clicked
+    for (let i = 0; i < icon_drop_minus_item.length; i++){
+        icon_drop_minus_item[i].addEventListener('click', () => {
+        icon_drop_minus_item[i].classList.remove('active')
+        icon_drop_plus_item[i].classList.add('active')
+        skill_item_list[i].classList.add('close')
+        })
+    }
 
 document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
@@ -104,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
              }
           );
      }
+
+
+
  function widthShow(target_element, done_status)
      {
          const prog = document.querySelectorAll(`.${target_element}`)
