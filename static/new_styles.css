@@ -8,7 +8,8 @@ body{
     background-size: contain;
     position: relative;
     height: 100vh;
-    background-color: #6f0835e6;
+    /* background-color: #6f0835e6; */
+    background-color: transparent;
     font-family: 'Lobster Two', 'Poppins',  sans-serif;
     padding-bottom: 40px;
     overflow-x: hidden;
@@ -23,6 +24,11 @@ ul{
 .main-page{
     margin-top: 60px;
     background-color: #cf1c91;
+    background-image: url('./contact-background.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     padding: 10px;
 }
 
@@ -147,6 +153,18 @@ ul{
     font-family: 'Poppins',  sans-serif;
 }
 
+@media screen and (max-width: 700px){
+    .hero-section .right h3{
+        font-size: 1.3rem;
+        line-height: 2rem;
+        text-align: justify;
+    }
+
+    .hero-section .right p{
+        font-size: 1.1rem;
+    }
+}
+
 
 /* About section */
 
@@ -229,6 +247,11 @@ ul{
     padding: 0 10px;
 }
 
+.about-section .edu-info > ul{
+    display: flex;
+    flex-direction: column;
+}
+
 .about-section .edu-item > a{
     color:rgb(255, 21, 147);
     font-size: 28px;
@@ -265,7 +288,7 @@ ul{
     padding: 20px 0;
 }
 
-.institution > h3, .online-courses > h3{
+.institution > h3, .online-courses > h3, .awards > h3{
     color: #ff1593;
 }
 
@@ -325,18 +348,82 @@ ul{
     font-size: 1.2rem;
 }
 
-.skills-list > li > a{
-    text-decoration: none;
+.skills-list > li > .skill-drop{
+    cursor: pointer;
     color:rgb(255, 21, 147);
+    display: flex;
+    justify-content: space-between;
     font-size: 25px;
 }
 
-.skills-list .skill-item{
+.skills-list > li > .skill-drop > .icon-drop-close{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+}
+
+.skills-list > li > ul > li{
+    padding-top: 10px;
+}
+
+.skills-list > li > ul > li > .skill-drop{
+    cursor: pointer;
+    color:rgb(255, 21, 147);
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+}
+.skills-list > li > ul > li > .skill-drop > .icon-drop-close{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+}
+
+.icon-drop{
+    position: absolute;
+    display: none;
+}
+
+.icon-drop.plus.active, 
+.icon-drop.minus.active,
+.icon-drop.plus-item.active,
+.icon-drop.minus-item.active{
+    display: block;
+    transition: all 1s ease-in-out;
+}
+
+.skills-list > li > .skill-item,
+.skills-list > li > ul > li > .skill-item-list{
     padding-left: 20px;
+    transition: all 1s ease-in-out;
+    animation: fromButtom 1s ease-in-out;
+}
+@keyframes fromButtom{
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+
+.skills-list > li > .skill-item.close,
+.skills-list > li > ul > li > .skill-item-list.close{
+    display: none;
 }
 
 .skills-list li > .skill-item > li{
     font-size: 20px;
+    color: white
 }
 
 .skills-list .skill-item > li > a{
@@ -412,10 +499,41 @@ ul{
     margin: 0;
 }
 
-.experience-list > header > address{
-    background-color: #a89aa8;
-    margin: 0;
+.experience-list > header > .marquee-wrap{
+    background-color: #2ea68e;
+    border-radius: 10px;
+    padding: 5px 7px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.experience-list > header > .marquee-wrap > p{
     padding: 0;
+    margin: 0;
+    text-wrap: nowrap;
+    transform: translateX(100%);
+    animation: dispMarquee 10s linear infinite;
+}
+
+.experience-list:first-child > header > .marquee-wrap > p{
+    padding: 0;
+    margin: 0;
+    text-wrap: nowrap;
+    transform: translateX(100%);
+    animation: dispMarquee 20s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes dispMarquee {
+    0% {
+         transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .experience-list > header  .company{
@@ -467,6 +585,82 @@ ul{
     font-size: 17px;
 }
 
+@media screen and (max-width: 700px){
+    .about-section > header h4{
+        font-size: 25px;
+    }
+    .about-section > header p{
+        font-size: 28px;
+    }
+    .about-section .short-bio > .info-txt{
+        font-size: 23px;
+    }
+    .about-section .short-bio > p{
+        font-size: 16px;
+    }
+    .about-section .edu-item > a{
+        font-size: 24px;
+    }
+
+    .about-section .fa-solid{
+        font-size: 1.3rem;
+    }
+
+    .active-line.actstatus{
+        left: 10%;
+        width: 20%;
+    }
+
+    .institution > h3, .online-courses > h3, .awards > h3{
+        font-size: 22px;
+    }
+
+    .institution h4, .online-courses h4{
+        font-size: 18px;
+    }
+    .institution p, .online-courses p{
+        font-size: 15px;
+    }
+
+    .skills-list > li > .skill-drop{
+        font-size: 20px;
+    }
+    .skills-list > li > ul > li > .skill-drop{
+        font-size: 17px;
+    }
+
+    .skills-list > li > ul > li > ul > li{
+        font-size: 15px;
+    }
+
+    .skills-list li > .skill-item > li{
+        font-size: 18px;
+    }
+
+    .experience-list > header  .company{
+        font-size: 20px;
+    }
+
+    .experience-list > header .company > .title{
+        font-size: 15px;
+    }
+
+.experience-list > .role-description > .department > li,
+.experience-list .see-more-drop > li{
+    font-size: 18px;
+}
+.experience-list > .role-description > .department ul,
+.experience-list .see-more-drop ul{
+    font-size: 16px;
+  
+}
+
+.experience-list > .role-description > .department .tasks > li,
+.experience-list .see-more-drop ul > li{
+    font-size: 15px;
+}
+}
+
 
 /* Portfolio section */
 .portfolio{
@@ -480,6 +674,10 @@ ul{
     padding: 15px 0;
 }
 
+.portfolio > header > .portfolio-links{
+    display: flex;
+}
+
 .portfolio > header ul > li{
     position: relative;
     margin-bottom: 15px;
@@ -487,7 +685,7 @@ ul{
 
 .portfolio li > a{
     color: #ff1593;
-    font-size: 25px;
+    font-size: 23px;
 }
 
 .project-item a{
@@ -554,6 +752,22 @@ ul{
     width: 100%;
     object-fit: contain;
 }
+@media screen and (max-width: 700px){
+    .portfolio li > a{
+        font-size: 20px;
+        padding: 5px 0;
+    }
+}
+
+@media screen and (max-width: 513px){
+    .portfolio li > a{
+        margin: 0;
+        font-size: 17px;
+    }
+}
+
+
+
 
 /* Contact section */
 
@@ -634,9 +848,6 @@ ul{
 
 .contact .send-message{
     color: #ff1593;
-    background-image: url('./contact-background.png');
-    background-repeat: no-repeat;
-    background-size: contain;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -657,12 +868,6 @@ ul{
     justify-content: center;
 }
 
-@media only screen and (max-width: 573px) {
-    .contact .send-message > form{
-        width: 100%;
-    }
-    
-}
 
 .contact .send-message > form input,
 .contact .send-message > form textarea{
@@ -709,4 +914,19 @@ ul{
     border-radius: 15px;
     resize: none;
     overflow-y: hidden;
+}
+
+@media only screen and (max-width: 573px) {
+    .contact .send-message > form{
+        width: 100%;
+    }
+
+    .contact .send-message > h4{
+        font-size: 20px;
+    }
+
+    .contact .send-message > form > .input-wrapper > label{
+        font-size: 18px;
+    }
+    
 }
